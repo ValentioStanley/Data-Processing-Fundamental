@@ -59,7 +59,7 @@ def extract_product_data(product):
         "Title": product_title,
         "Price": price,
         "Rating": rating,
-        "Number Color": num_color,
+        "Number_Color": num_color,
         "Size": size,
         "Gender": gender,
         "Timestamp" : timestamp
