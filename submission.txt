@@ -1,0 +1,6 @@
+# Menjalankan skrip
+python main.py
+
+# Menjalankan program utama
+python main.py
+
