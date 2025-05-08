@@ -1,14 +1,12 @@
 from sqlalchemy import create_engine
  
-def store_to_postgre(data, db_url):
+def store_to_postgre(data, db_url, tablename, schema):
     """Fungsi untuk menyimpan data ke dalam PostgreSQL."""
     try:
         # Membuat engine database
         engine = create_engine(db_url)
-        
-        # Menyimpan data ke tabel 'bookstoscrape' jika tabel sudah ada, data akan ditambahkan (append)
         with engine.connect() as con:
-            data.to_sql('products', con=con, if_exists='append', index=False)
+            data.to_sql(tablename, schema=schema, con=con, if_exists='append', index=False)
             print("Data berhasil ditambahkan!")
     
     except Exception as e:

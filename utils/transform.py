@@ -23,8 +23,9 @@ def transform_data(data, exchange_rate):
     # Transformasi Exchange Rate
     df['Price_in_rupiah'] = (df['Price_in_dollars'] * exchange_rate).astype(int)
     
-    # Menghapus kolom harga
+    # Menghapus kolom harga dan duplikat
     df = df.drop(columns=['Price'])
+    df = df.drop_duplicates()
     
     # Menggulang reset index biar rapih
     df = df.reset_index(drop=True)

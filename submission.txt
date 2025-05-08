@@ -1,6 +1,14 @@
 # Menjalankan skrip
 python main.py
 
-# Menjalankan program utama
-python main.py
+# Menjalankan unit test pada folder tests
+python -m pytest tests/test_extract.py -v --cov --cov-report=html
+python -m pytest tests/test_load.py -v --cov --cov-report=html
+python -m pytest tests/test_transform.py -v --cov --cov-report=html
+python -m pytest tests
 
+# Menjalankan test coverage pada folder tests
+coverage run -m pytest tests
+
+# Url Google Sheets:
+https://docs.google.com/spreadsheets/d/176cmvosMUzcpj_I4N_I8ZUOnnC1Wbgc89djbxERB2ZI/edit?usp=sharing

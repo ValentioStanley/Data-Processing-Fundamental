@@ -29,6 +29,7 @@ def extract_product_data(product):
     product_title = product.find('h3', class_='product-title').text # judul produk
     # print(product.prettify())
     detail_element = product.find('div', class_='product-details')
+    
     # harga
     if detail_element.find('div', class_='price-container'):
         price = detail_element.find('span', class_='price').text
@@ -74,8 +75,6 @@ def scrape_product(base_url, start_page=1, delay=2):
     page_number = start_page
  
     while True:
-        # url = base_url+"page{}".format(page_number)
-    
         if page_number > 1:
             url = base_url+"page{}".format(page_number)
         else: 
@@ -96,9 +95,9 @@ def scrape_product(base_url, start_page=1, delay=2):
                 page_number += 1
                 time.sleep(delay) # Delay sebelum halaman berikutnya
             else:
-                break # Berhenti jika sudah tidak ada next button
+                break
         else:
-            break # Berhenti jika ada kesalahan
+            break 
  
     return data
  
