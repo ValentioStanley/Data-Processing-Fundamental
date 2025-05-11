@@ -26,7 +26,7 @@ def main():
             schema = 'public'
             store_to_postgre(df, db_url, tablename, schema)
             
-            df.to_csv('products.csv', index=False) # Export to CSV langsung ke dalam workplace ini
+            # df.to_csv('products.csv', index=False) # Export to CSV langsung ke dalam workplace ini
             insertToSpreadsheet([df.columns.values.tolist()] + df.values.tolist()) # Menyimpan data ke spreadsheet
             
         except Exception as e:

@@ -8,7 +8,7 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 credential = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
  
 SPREADSHEET_ID = '176cmvosMUzcpj_I4N_I8ZUOnnC1Wbgc89djbxERB2ZI'
-RANGE_NAME = 'Sheet1!A1:I900'
+RANGE_NAME = 'Sheet1!A1:J900'
  
 def insertToSpreadsheet(values_list):
     try:
@@ -26,7 +26,7 @@ def insertToSpreadsheet(values_list):
             body=body
         ).execute()
  
-        print("Berhasil menambahkan data!")
+        print("Spreadsheet Message: Berhasil menambahkan data ke spreadsheet!")
     except Exception as e:
          print(f"An error occurred: {e}")
          
