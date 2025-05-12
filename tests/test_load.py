@@ -1,4 +1,4 @@
-from utils.load import store_to_postgre
+from utils.load import store_data
 import unittest
 from unittest import TestCase, mock
 from unittest.mock import patch
@@ -18,14 +18,12 @@ class TestLoad(TestCase):
         self.tablename = 'unittest'
         self.schema = 'testing'
     
-    def test_store_to_postgre(self):
-        store_to_postgre(self.data, self.db_url, self.tablename, self.schema)
-           
-
+    def test_store_data(self):
+        store_data(self.data, self.db_url, self.tablename, self.schema)
 
     @staticmethod   
     @patch('utils.load.create_engine')
-    @patch("main.store_to_postgre", side_effect=Exception(""))
+    @patch("main.store_data", side_effect=Exception(""))
     def test_db_error(self, mock_create_engine):
         with patch('builtins.print') as mock_print:
             main()

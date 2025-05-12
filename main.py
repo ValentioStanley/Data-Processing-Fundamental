@@ -1,5 +1,5 @@
 from utils.extract import scrape_product
-from utils.load import store_to_postgre
+from utils.load import store_data
 from utils.transform import transform_data
 from utils.spreadsheet import insertToSpreadsheet
 
@@ -24,9 +24,7 @@ def main():
             db_url = 'xxx' # Disamarkan dulu karena sensitif untuk sharing
             tablename = 'products'
             schema = 'public'
-            store_to_postgre(df, db_url, tablename, schema)
-            
-            # df.to_csv('products.csv', index=False) # Export to CSV langsung ke dalam workplace ini
+            store_data(df, db_url, tablename, schema)
             insertToSpreadsheet([df.columns.values.tolist()] + df.values.tolist()) # Menyimpan data ke spreadsheet
             
         except Exception as e:

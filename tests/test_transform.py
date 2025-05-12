@@ -22,6 +22,7 @@ class TestTransform(TestCase):
         self.assertIsInstance(result.loc[0, 'Title'], str)
         self.assertNotIsInstance(result.loc[0, 'Title'], int)
         # Cek harga
+        
         self.assertEqual(result.loc[0, 'Price_in_dollars'], 23.00)
         self.assertEqual(result.loc[0, 'Price_in_rupiah'], int(result.loc[0, 'Price_in_dollars'] * self.exchange_rate))
         # Cek rating
@@ -42,6 +43,7 @@ class TestTransform(TestCase):
         self.assertNotEqual(result.loc[0, 'Gender'], expected4[0])
         self.assertNotEqual(result.loc[1, 'Gender'], expected4[0])
         # Cek tipe data
+        self.assertEqual((result['Price'].dtype), float)
         self.assertEqual((result['Price_in_dollars'].dtype), float)
         self.assertEqual((result['Rating'].dtype), float)
         self.assertEqual((result['Number_Color'].dtype), int)
@@ -49,7 +51,7 @@ class TestTransform(TestCase):
         excepted_columns = result.columns
         self.assertIn('Price_in_dollars', excepted_columns)
         self.assertIn('Price_in_rupiah', excepted_columns)
-        self.assertNotIn('Price', excepted_columns)
+        self.assertIn('Price', excepted_columns)
         
 if __name__ == '__main__':
     unittest.main()
