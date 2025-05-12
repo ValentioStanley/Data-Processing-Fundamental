@@ -9,7 +9,7 @@ import pandas as pd
 class TestLoad(TestCase):
     def setUp(self):
         self.data = pd.DataFrame(
-            {"Title":['LOlzzz'], "Rating":[4.3], 
+            {"Title":['LOlzzz'], "Price": [23.30],"Rating":[4.3], 
              "Number_Color":[5], "Size":['M'], 
              "Gender":['L'], "Timestamp":['2025-05-07 02:30:46.036413+07'], 
              "Price_in_dollars":[23.30], "Price_in_rupiah":[150000]}
